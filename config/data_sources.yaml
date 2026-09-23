@@ -1,0 +1,31 @@
+# Availability windows are DATA FACTS, not preferences.
+# processors.py enforces them: out-of-window cells are NaN, never filled.
+fred:
+  start: "1995-01-02"
+  series:
+    # tenor -> fred id -> availability
+    DGS1MO:  {first_valid: "2001-07-31"}       # did not exist in the 90s
+    DGS3MO:  {first_valid: "1982-01-04"}       # fine from 1995
+    DGS6MO:  {first_valid: "2001-07-31"}
+    DGS1:    {first_valid: "1962-01-02"}       # continuous daily backstop to 1962
+    DGS2:    {first_valid: "1976-06-01"}
+    DGS3:    {first_valid: "1982-01-04"}
+    DGS5:    {first_valid: "1962-01-02"}
+    DGS7:    {first_valid: "1969-07-01"}
+    DGS10:   {first_valid: "1962-01-02"}
+    DGS20:   {first_valid: "1993-10-01"}       # exists for the whole 1995 window
+    DGS30:   {first_valid: "1977-02-15",
+              blackouts: [["2002-02-19", "2006-02-08"]]}   # discontinued; resumed Feb 2006
+    BAMLC0A0CM: {first_valid: "1996-12-31"}    # IG OAS — misses 1995-96 only
+    BAA10Y:  {first_valid: "1986-01-02"}
+    T10Y2Y:  {first_valid: "1976-06-01"}
+    VIXCLS:  {first_valid: "1990-01-02"}
+    FEDFUNDS: {first_valid: "1954-07-01", freq: "M"}
+    DEXJPUS: {first_valid: "1971-01-04"}       # JPY per USD — appreciation = DOWN
+yahoo:
+  start: "2000-01-03"                  # futures history is thin before ~2000; regression data only
+  tickers: {futures: ["TY=F","FV=F","TU=F","US=F","WN=F"], fx: ["JPY=X"], vix: ["^VIX"]}
+tic:
+  mfh_url: "https://ticdata.treasury.gov/Publish/mfh.txt"   # monthly, Japan from ~2000
+  slt_long_short_split: {first_valid: "2011-09"}            # granular buckets; earlier = ESTIMATED
+  caveat: "TIC records residency, not ownership — 'Japan' aggregates official + private holders"

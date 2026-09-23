@@ -1,0 +1,4 @@
+{
+  "tests/test_stress_backtest_bridge.py::test_backtest_on_scenario_returns_dict": true,
+  "tests/test_stress_backtest_bridge.py::test_consistency_with_vaREngine": true
+}

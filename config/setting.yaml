@@ -1,0 +1,66 @@
+# settings.yaml — CrisisRisk: Japan UST Liquidation Simulation
+project:
+  name: crisisrisk-japan-ust-liquidation
+  seed: 42                      # every stochastic function takes seed=<this>
+
+data:
+  full_history_start: "1995-01-02"   # dot-com + 1994-adjacent + GFC + 2020 + 2022 + 2026
+  end_date: "latest"
+  freq: "B"                          # business days
+  max_ffill_days: 3                  # longer gaps are flagged, never fabricated
+  cache_dir: "data/raw"
+  processed_dir: "data/processed"
+  bundled_sample_years: 10           # fallback sample must exceed backtest floor
+
+risk:
+  var_confidence: [0.95, 0.99, 0.995]     # reported
+  backtest_confidence: [0.95, 0.99]       # backtested ONLY these
+  backtest_min_obs: {0.95: 250, 0.99: 750}  # statistical power floors
+  var_horizons: [1, 10]                   # 30d stretch only
+  es_confidence: 0.975                    # Basel convention
+  monte_carlo:
+    n_paths: 20000
+    seed: 42
+    antithetic: true
+    min_obs_full_pca: 2000                # measured: 252 obs gives factor stability 0.06
+  ewma_lambda: 0.94
+
+windows:                                # per-model estimation windows — history is
+  var_engine: "rolling_750"             # context, windows are the estimate
+  pca_factors: "full_history"
+  regime_hmm: "full_history"
+  vol_garch: "rolling_1000"
+  stress_calibration: "named_events"
+
+portfolio:
+  base_currency: USD
+  institutional:
+    notional: 10_000_000_000
+    allocation: {treasuries: 0.40, ig_corp: 0.30, hy: 0.10, mbs: 0.10, cash: 0.10}
+    japan_overlay_pct: 0.15
+  japan_aggregate:
+    notional: 1_100_000_000_000        # TIC MFH, Sep-2026 vintage ~$1.1T
+    liquidation_pct_range: [0.10, 0.30]
+    liquidation_days_range: [30, 90]
+    maturity_basis: "ESTIMATED — SLT l/s split + on-the-run bucket shares"
+
+stress_calibration_notes:              # every number below traces to a source
+  covid_2020: "+64bp / 8 sessions on 10Y during dash-for-cash"
+  ldi_2022:  "+~125bp / 4 sessions on 30Y-equivalent; ~24% price loss"
+  y1994:     "+~200bp / 9 months on 10Y; slow-disorderly benchmark for Japan scenario"
+  flow_scaling: "Mar-2020 foreign-official selling ~$90bn => +64bp; scale linearly, then x1.5 convexity for disorderly"
+
+stress_scenarios:
+  japan_baseline: {dy_10y_bp: 50,  dy_30y_bp: 65,  dfx_pct: -4,  dvix: 10, ig_bp: 20,  haircut: 0.02, basis: "10% / 30d orderly"}
+  japan_severe:   {dy_10y_bp: 120, dy_30y_bp: 160, dfx_pct: -10, dvix: 25, ig_bp: 60,  haircut: 0.06, basis: "20% / 30d, ~2x Mar-2020 flow"}
+  japan_extreme:  {dy_10y_bp: 250, dy_30y_bp: 320, dfx_pct: -18, dvix: 50, ig_bp: 120, haircut: 0.12, basis: "30% / 60d disorderly; nears 1994 total repricing"}
+
+advanced:
+  regime_n_states: 2                   # 3-state is stretch
+  garch_dist: "t"
+  ml_forecast_horizon: 30              # stretch only
+
+reporting:
+  dashboard_reads_only: true           # parquet artifacts in, plots out
+  pdf_sections: [exec_summary, methodology, var_es, stress, hedging, impact, limitations]
+  model_doc: "docs/MODEL.md"

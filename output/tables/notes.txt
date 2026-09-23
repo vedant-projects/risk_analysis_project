@@ -1,0 +1,3 @@
+curve_source: built-in demo curve
+scenario_loss_pct: {'japan_baseline': -3.4896944479647094, 'japan_severe': -8.654614811612364, 'japan_extreme': -16.79988047064024}
+returns_source: book_history.parquet missing - VaR tables skipped

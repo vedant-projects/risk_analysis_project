@@ -1,0 +1,23 @@
+{
+  "target": "Next-five-day RMS normalized hypothetical P&L",
+  "decision_time": "Current close; outcomes begin next observation",
+  "train_end": "2025-08-11 00:00:00",
+  "validation_start": "2025-08-19 00:00:00",
+  "validation_end": "2026-02-26 00:00:00",
+  "test_start": "2026-03-06 00:00:00",
+  "test_end": "2026-09-23 00:00:00",
+  "purge": 5,
+  "RL": "First-visit Monte Carlo control",
+  "actions": "Fixed cash-bond short templates",
+  "short_financing": 0.005,
+  "trading_cost": 0.0002,
+  "limitations": [
+    "Zero-rate and spread-proxy valuation",
+    "Not a Markov-state guarantee",
+    "No futures basis, rolls, borrow recalls or variation margin",
+    "Fixed collateral rule, not broker margin",
+    "No actual portfolio NAV or investable return claim",
+    "Intervals are evaluated, not guaranteed calibrated",
+    "No independent model validation"
+  ]
+}

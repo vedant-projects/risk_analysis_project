@@ -1,0 +1,8 @@
+model,owner,status,intended_use,prohibited_use
+Cashflow valuation,Project author,Research / not independently validated,Model-based fixed-income research,Live execution or regulatory capital
+Rolling VaR,Project author,Research / not independently validated,Historical forecast comparison,Live execution or regulatory capital
+Factor bootstrap,Project author,Research / not independently validated,Hypothetical market-shock risk,Live execution or regulatory capital
+Cash hedge optimizer,Project author,Research / not independently validated,Sensitivity reduction study,Live execution or regulatory capital
+Reverse stress,Project author,Research / not independently validated,Local loss-threshold scenario search,Live execution or regulatory capital
+ML quantiles,Project author,Research / not independently validated,Volatility interval research,Live execution or regulatory capital
+MC hedge RL,Project author,Research / not independently validated,Experimental policy evaluation,Live execution or regulatory capital

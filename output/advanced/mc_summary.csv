@@ -1,0 +1,7 @@
+horizon,confidence,VaR,ES,paths,excluded
+1,0.95,0.005688738593978798,0.007230327131629772,1000,"Carry, time roll, defaults and transaction costs"
+1,0.975,0.006907286263843,0.008182492954635068,1000,"Carry, time roll, defaults and transaction costs"
+1,0.99,0.008322326304037713,0.009301789310958835,1000,"Carry, time roll, defaults and transaction costs"
+10,0.95,0.017080903657093614,0.021655834363546136,1000,"Carry, time roll, defaults and transaction costs"
+10,0.975,0.020335111017910107,0.024684717835725355,1000,"Carry, time roll, defaults and transaction costs"
+10,0.99,0.02456371526801352,0.02855143537207942,1000,"Carry, time roll, defaults and transaction costs"

@@ -1,0 +1,5 @@
+Approximate rate-only book proxy.
+Historical results are descriptive, not an out-of-sample MC backtest.
+ML scaling is an experimental volatility adjustment.
+The 5-day forecast is held constant even for the 20-day simulation.
+No unseen crisis shocks or explicit hedge pricing are modeled.

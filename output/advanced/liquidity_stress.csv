@@ -1,0 +1,10 @@
+outflow_fraction,days,required_cash,net_liquidation_capacity,shortfall,assumption
+0.1,1,9402237.678945422,41945000.0,0.0,User/demo capacities; constant prices; simultaneous liquidation; no impact feedback
+0.1,5,9402237.678945422,74895959.24370119,0.0,User/demo capacities; constant prices; simultaneous liquidation; no impact feedback
+0.1,10,9402237.678945422,84479310.09218223,0.0,User/demo capacities; constant prices; simultaneous liquidation; no impact feedback
+0.25,1,23505594.197363555,41945000.0,0.0,User/demo capacities; constant prices; simultaneous liquidation; no impact feedback
+0.25,5,23505594.197363555,74895959.24370119,0.0,User/demo capacities; constant prices; simultaneous liquidation; no impact feedback
+0.25,10,23505594.197363555,84479310.09218223,0.0,User/demo capacities; constant prices; simultaneous liquidation; no impact feedback
+0.5,1,47011188.39472711,41945000.0,5066188.394727111,User/demo capacities; constant prices; simultaneous liquidation; no impact feedback
+0.5,5,47011188.39472711,74895959.24370119,0.0,User/demo capacities; constant prices; simultaneous liquidation; no impact feedback
+0.5,10,47011188.39472711,84479310.09218223,0.0,User/demo capacities; constant prices; simultaneous liquidation; no impact feedback

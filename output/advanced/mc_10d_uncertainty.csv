@@ -1,0 +1,3 @@
+measure,bootstrap_lower,bootstrap_upper,scope
+VaR99,0.021125432301769297,0.02639620994260377,Conditional path-sampling uncertainty only
+ES99,0.024708160207024165,0.03214942027427642,Conditional path-sampling uncertainty only

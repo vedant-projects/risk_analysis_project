@@ -1,0 +1,4 @@
+scenario,loss_pct,days_worse_or_equal,share_of_history_pct,approx_return_period_days,approx_return_period_years
+japan_baseline,3.4533884323377935,0,0.0,inf,inf
+japan_severe,8.573000034269377,0,0.0,inf,inf
+japan_extreme,16.65536974278053,0,0.0,inf,inf

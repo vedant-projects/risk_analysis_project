@@ -1,0 +1,7 @@
+scenario,pnl_usd,pnl_pct,type
+Rates_up_100bp,-5799318.426172614,-6.168019384533449,Hypothetical; no assigned probability
+Rates_down_100bp,6517114.9361691475,6.931450957427959,Hypothetical; no assigned probability
+Steepener,-3527708.4137431234,-3.7519881268719426,Hypothetical; no assigned probability
+Flattener,732696.8913396448,0.7792792698491173,Hypothetical; no assigned probability
+Credit_stress,-2246916.0600690246,-2.389767347724658,Hypothetical; no assigned probability
+Combined_stress,-7924180.864487976,-8.427973355994519,Hypothetical; no assigned probability

@@ -1,0 +1,6 @@
+Illustrative-book research unless a verified instrument master is supplied. Treasury CMT yields are zero-rate proxies; IG/HY index OAS are additive spread proxies. No market-price calibration, business-day adjustment, default, MBS optionality, FX or regulatory compliance.
+Liquidity capacities and bid-ask inputs are assumptions.
+Cash-short hedges are continuous, not integer futures trades.
+PCA is full-sample descriptive analysis only.
+ES diagnostics are not a formal ES backtest.
+No production or regulatory approval is implied.

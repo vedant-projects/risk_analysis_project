@@ -1,4 +1,11 @@
 [
+  "tests/test_advanced.py::test_attribution_reconciles",
+  "tests/test_advanced.py::test_cash_payment_is_positive",
+  "tests/test_advanced.py::test_credit_spread_does_not_change_government_price",
+  "tests/test_advanced.py::test_matured_bond_has_no_remaining_value",
+  "tests/test_advanced.py::test_price_falls_when_rates_rise",
+  "tests/test_advanced.py::test_sensitivity_matches_parallel_bump",
+  "tests/test_advanced.py::test_zero_exception_coverage_is_finite",
   "tests/test_bond_math.py::test_curve_from_row_drops_nan_tenors_and_rejects_sparse",
   "tests/test_bond_math.py::test_dv01_matches_curve_bump",
   "tests/test_bond_math.py::test_flat_curve_bootstraps_to_flat_zeros_and_par_bonds_price_at_100",

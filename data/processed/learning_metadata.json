@@ -1,0 +1,13 @@
+{
+  "source": "FRED Treasury yields",
+  "history_type": "APPROXIMATE_RATE_ONLY_BOOK_PROXY",
+  "start": "2005-01-04 00:00:00",
+  "end": "2026-09-30 00:00:00",
+  "rows": 5672,
+  "limitations": [
+    "Fixed-duration first-order valuation approximation",
+    "Approximate yield carry, not actual coupon/roll-down accounting",
+    "No credit-spread, MBS optionality, FX or liquidity losses",
+    "Not exact historical P&L of the original portfolio"
+  ]
+}

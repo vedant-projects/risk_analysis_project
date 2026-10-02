@@ -1,0 +1,21 @@
+{
+  "time_utc": "2026-10-02T21:04:36.994723+00:00",
+  "git_commit": "76deffb994516554d78ef405b2aff3a900e4b6ea",
+  "python": "3.14.7 (main, Aug 10 2026, 07:46:56) [GCC 16.1.1 20260728]",
+  "packages": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  },
+  "seed": 42,
+  "risk_window": 250,
+  "risk_confidence": 0.99,
+  "input_hashes": {
+    "data/advanced/illustrative_instruments.csv": "532bea01b05a03adeb8e1701261b6525e16d911bd2fe1d949f3b4eaa6104b213",
+    "data/advanced/market_factors.csv": "e645393db19f63a5ab788464fd328a3185deed3a5e9a9e7ee06f2ca0dfe64706",
+    "data/processed/yields_dec.parquet": "4a763bd635b5433516ccb87f3e6681ad97f9e741706165d4e7bf11a021c659a8"
+  },
+  "disclaimer": "Illustrative-book research unless a verified instrument master is supplied. Treasury CMT yields are zero-rate proxies; IG/HY index OAS are additive spread proxies. No market-price calibration, business-day adjustment, default, MBS optionality, FX or regulatory compliance.",
+  "historical_design": "Retrospective fixed-current-book study, not historical holdings"
+}

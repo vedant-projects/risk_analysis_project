@@ -1,56 +1,81 @@
 from __future__ import annotations
 
+import json
+import os
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT))
 
 from src.reporting.report_tables import build_bundle
 
 
-def main() -> None:
-    out_dir = ROOT / "output" / "tables"
-    out_dir.mkdir(parents=True, exist_ok=True)
+def main():
+    os.chdir(ROOT)
+    out = ROOT / "output/tables"
+    out.mkdir(parents=True, exist_ok=True)
 
     bundle = build_bundle()
 
     tables = {
-        "book.csv": bundle.book,
-        "scenarios.csv": bundle.scenarios,
-        "latest_risk.csv": bundle.latest_risk,
-        "backtest.csv": bundle.backtest,
-        "worst_days.csv": bundle.worst_days,
-        "scenario_history_1d.csv": bundle.scen_hist_1d,
-        "scenario_history_5d.csv": bundle.scen_hist_5d,
+        "book": bundle.book,
+        "scenarios": bundle.scenarios,
+        "latest_risk": bundle.latest_risk,
+        "backtest": bundle.backtest,
+        "worst_days": bundle.worst_days,
+        "scenario_history_1d": bundle.scen_hist_1d,
+        "scenario_history_5d": bundle.scen_hist_5d,
     }
 
     exported = []
     skipped = []
 
-    for filename, df in tables.items():
-        if df is not None:
-            df.to_csv(out_dir / filename)
-            exported.append(filename)
+    for name, frame in tables.items():
+        path = out / f"{name}.csv"
+
+        if frame is None:
+            path.unlink(missing_ok=True)
+            skipped.append(name)
         else:
-            skipped.append(filename)
+            frame.to_csv(path)
+            exported.append(name)
 
-    print(f"exported {len(exported)} table(s) to {out_dir}")
-    for name in exported:
-        print(f"  OK   {name}")
+    metadata_path = ROOT / "data/processed/learning_metadata.json"
+    history_metadata = (
+        json.loads(metadata_path.read_text(encoding="utf-8"))
+        if metadata_path.exists() else {}
+    )
 
-    if skipped:
-        print("\nskipped (source data unavailable):")
-        for name in skipped:
-            print(f"  SKIP {name}")
+    manifest = {
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "exported": exported,
+        "skipped": skipped,
+        "bundle_notes": bundle.notes,
+        "history_metadata": history_metadata,
+        "warning": (
+            "Historical risk, ML, Monte Carlo and RL results use an "
+            "approximate rate-only book proxy unless explicitly replaced. "
+            "Current scenario repricing is a separate calculation."
+        ),
+    }
 
-    notes_path = out_dir / "notes.txt"
-    with open(notes_path, "w", encoding="utf-8") as f:
-        for k, v in bundle.notes.items():
-            f.write(f"{k}: {v}\n")
+    (out / "manifest.json").write_text(
+        json.dumps(manifest, indent=2, default=str),
+        encoding="utf-8",
+    )
 
-    print(f"\nnotes -> {notes_path}")
+    (out / "notes.txt").write_text(
+        "\n".join(
+            [manifest["warning"]]
+            + [f"{key}: {value}" for key, value in bundle.notes.items()]
+        ),
+        encoding="utf-8",
+    )
+
+    print(f"Exported {len(exported)} tables to {out}")
+    print("Skipped:", ", ".join(skipped) or "none")
 
 
 if __name__ == "__main__":

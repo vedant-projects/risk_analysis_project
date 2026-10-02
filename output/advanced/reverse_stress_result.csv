@@ -1,0 +1,2 @@
+target_loss_usd,achieved_loss_usd,solver_success,constraint_satisfied,message,interpretation
+9402237.678945422,9402236.207753718,True,True,Optimization terminated successfully,Local constrained solution; diagonal standardized distance is not a probability or global minimum guarantee

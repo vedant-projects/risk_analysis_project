@@ -1,0 +1,10 @@
+feature,KS_statistic,KS_pvalue,interpretation
+return,0.13250000000000006,0.04091787834496706,Descriptive temporal drift; serial dependence and multiple testing limit p-value interpretation
+lag_return,0.13250000000000006,0.04091787834496706,Descriptive temporal drift; serial dependence and multiple testing limit p-value interpretation
+rms20,0.734281045751634,1.4095164747778096e-57,Descriptive temporal drift; serial dependence and multiple testing limit p-value interpretation
+rms60,0.9976470588235294,1.2251660182484263e-136,Descriptive temporal drift; serial dependence and multiple testing limit p-value interpretation
+mean20,0.3574673202614379,9.331103451050756e-13,Descriptive temporal drift; serial dependence and multiple testing limit p-value interpretation
+slope,0.6403431372549019,2.020021637079688e-42,Descriptive temporal drift; serial dependence and multiple testing limit p-value interpretation
+IG,0.6433169934640522,8.020856103964316e-43,Descriptive temporal drift; serial dependence and multiple testing limit p-value interpretation
+HY,0.5936764705882354,5.188470066086291e-36,Descriptive temporal drift; serial dependence and multiple testing limit p-value interpretation
+dy10,0.09071895424836601,0.31529016127414705,Descriptive temporal drift; serial dependence and multiple testing limit p-value interpretation

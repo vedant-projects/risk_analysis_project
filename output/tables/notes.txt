@@ -1,3 +1,4 @@
-curve_source: built-in demo curve
-scenario_loss_pct: {'japan_baseline': -3.4896944479647094, 'japan_severe': -8.654614811612364, 'japan_extreme': -16.79988047064024}
-returns_source: book_history.parquet missing - VaR tables skipped
+Historical risk, ML, Monte Carlo and RL results use an approximate rate-only book proxy unless explicitly replaced. Current scenario repricing is a separate calculation.
+curve_source: real yields_dec panel (last row)
+scenario_loss_pct: {'japan_baseline': -3.4533884323377935, 'japan_severe': -8.573000034269377, 'japan_extreme': -16.65536974278053}
+returns_source: book_history.parquet

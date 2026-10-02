@@ -1,0 +1,20 @@
+{
+  "history": "APPROXIMATE_RATE_ONLY_BOOK_PROXY",
+  "algorithm": "First-visit on-policy Monte Carlo control",
+  "training": "Random contiguous historical OOF episodes",
+  "evaluation": "Frozen policy on chronological held-out history",
+  "actions": [
+    0.5,
+    0.75,
+    1.0
+  ],
+  "cost_per_unit_exposure_change": 0.0002,
+  "downside_penalty": 0.5,
+  "limitations": [
+    "Approximate discretized state; not guaranteed Markov",
+    "Overlapping historical training episodes are not independent",
+    "No explicit instrument-level hedging",
+    "No automatic hyperparameter tuning on the test period",
+    "Terminal liquidation costs are not included"
+  ]
+}

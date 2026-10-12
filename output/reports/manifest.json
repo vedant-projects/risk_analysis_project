@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-02T20:24:01.130984+00:00",
+  "generated_at_utc": "2026-10-11T23:12:48.679023+00:00",
   "warning": "EXPERIMENTAL RESEARCH OUTPUT. Historical portfolio returns are an approximate rate-only book proxy, not exact historical portfolio P&L. Credit spreads, MBS optionality, FX and liquidity risks are omitted from that proxy. Scenario repricing is a separate calculation. RL controls exposure; it does not implement an instrument-level hedge.",
   "findings": [
     "ML held-out RMSE is 0.001208; trailing-volatility RMSE is 0.001280. ML error is lower.",
@@ -22,7 +22,7 @@
       ]
     },
     "output/tables/manifest.json": {
-      "generated_at_utc": "2026-10-02T20:23:58.700480+00:00",
+      "generated_at_utc": "2026-10-11T23:12:46.201942+00:00",
       "exported": [
         "book",
         "scenarios",
